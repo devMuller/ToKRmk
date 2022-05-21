@@ -263,6 +263,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -272,8 +274,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -294,9 +296,12 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
@@ -2052,6 +2057,87 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Tileset v1_15: 4489686981536827253
+      Tileset v1_71: -7675050718416022645
+      Tileset v1_25: -2441601215979045744
+      Tileset v1_75: -5133305173718444205
+      Tileset v1_51: -278465587461944749
+      Tileset v1_16: -5775261317710235884
+      Tileset v1_9: 7243486192312374284
+      Tileset v1_33: 3189123795772761747
+      Tileset v1_53: -2631139806018803996
+      Tileset v1_69: -6485470449015790734
+      Tileset v1_65: -8483380193528463141
+      Tileset v1_77: 4201312407169026013
+      Tileset v1_78: -1723049281285647862
+      Tileset v1_5: 4040254511261294646
+      Tileset v1_63: 1124448462775254296
+      Tileset v1_27: 2611044518902256271
+      Tileset v1_24: -4137092570366765160
+      Tileset v1_12: -4707456557149192464
+      Tileset v1_55: -1501138055454237311
+      Tileset v1_13: -985901136463074162
+      Tileset v1_29: 4817761689424004852
+      Tileset v1_26: -2033782809615466993
+      Tileset v1_70: -4149243390400439569
+      Tileset v1_74: -1948265624073134575
+      Tileset v1_32: -3743452680022332681
+      Tileset v1_72: 184159498735004174
+      Tileset v1_2: 7616340028790400924
+      Tileset v1_1: 7217348856518390819
+      Tileset v1_41: -6809722943356270987
+      Tileset v1_18: -5452893575080428155
+      Tileset v1_43: 326472831186479540
+      Tileset v1_66: 23810507967468852
+      Tileset v1_0: 6465289802737084194
+      Tileset v1_38: 9009523686960750506
+      Tileset v1_36: -3862744849466985480
+      Tileset v1_17: 541921449260884401
+      Tileset v1_73: 1527456725833139007
+      Tileset v1_35: 427925898188235014
+      Tileset v1_8: 1261102406118382658
+      Tileset v1_52: 1460557744323934930
+      Tileset v1_76: 9048494543773795510
+      Tileset v1_34: 8070990471248568607
+      Tileset v1_3: -5266307336125341852
+      Tileset v1_46: -1994907474251173214
+      Tileset v1_62: 3462179364468006404
+      Tileset v1_28: 7742093821928521528
+      Tileset v1_40: -6463606851060936421
+      Tileset v1_4: 1017954178920552928
+      Tileset v1_22: -7917750398789633490
+      Tileset v1_48: 1759489015385116636
+      Tileset v1_61: 4288255641314368547
+      Tileset v1_39: 6705104902423800489
+      Tileset v1_23: 8117885680148109134
+      Tileset v1_59: -4198985750709437853
+      Tileset v1_7: -6906787590208775372
+      Tileset v1_47: 1869059237216401008
+      Tileset v1_58: 8920034745990796637
+      Tileset v1_21: 927164313420753973
+      Tileset v1_68: 5056247397712270681
+      Tileset v1_20: -8612561325265354258
+      Tileset v1_30: -3414193464268730232
+      Tileset v1_19: 2534180155713851401
+      Tileset v1_31: 895906470114258551
+      Tileset v1_45: 270734084007179146
+      Tileset v1_42: -2607913574496373702
+      Tileset v1_79: -5794141500037730227
+      Tileset v1_44: -3394511465201640401
+      Tileset v1_60: -5449835496454049867
+      Tileset v1_14: -2078499178760558431
+      Tileset v1_6: 61014776297903025
+      Tileset v1_67: -6416698250127200122
+      Tileset v1_10: 3038292904723585009
+      Tileset v1_50: 1198973936279734459
+      Tileset v1_54: 4023460015713329832
+      Tileset v1_56: 1047874031501395668
+      Tileset v1_11: 3622860458743127980
+      Tileset v1_37: 5563738217553721897
+      Tileset v1_49: 4710679374072145297
+      Tileset v1_64: -6065829634907258173
+      Tileset v1_57: 3871274888152853652
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
