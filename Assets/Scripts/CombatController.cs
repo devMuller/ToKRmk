@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class CombatController : MonoBehaviour
 {
-	public GameObject PlayerWeapon;
+	[SerializeField] GameObject PlayerWeapon;
 
+	private void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.Mouse0))
+		{
+			PlayerWeapon.GetComponent<Animator>().SetTrigger("AttackUp");
+		}
+	}
 }

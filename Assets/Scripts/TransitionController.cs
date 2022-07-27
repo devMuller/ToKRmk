@@ -13,9 +13,8 @@ public class TransitionController : MonoBehaviour
 	public int nextLevel;
 
 	bool fadeStarted;
-	[SerializeField] GameObject image;
-	[SerializeField] GameObject text;
-
+	[SerializeField] Image image;
+	[SerializeField] TMP_Text text;
 
 	private void Start()
 	{
@@ -37,23 +36,30 @@ public class TransitionController : MonoBehaviour
 
 	}
 
-	 IEnumerator LoadLevel()
+	IEnumerator LoadLevel()
 	{
 		AsyncOperation operation = SceneManager.LoadSceneAsync(nextLevel);
 
-		while (!operation.isDone)
-		{
-			yield return new WaitForSecondsRealtime(0.5f);
-			Color startcolor = image.GetComponent<Image>().color;
-			Color endcolor = startcolor;
-			endcolor.a = 255;
+		yield return new WaitForSecondsRealtime(0.5f);
 
-			float t = 0.0f;
-			float duration = 150f;
-			while (image.GetComponent<Image>().color.a < 250)
+		operation.allowSceneActivation = false;
+
+		Color startcolor;
+		Color endcolor;
+		float t;
+		float duration;
+
+		startcolor = new Color(1, 1, 1, 0);
+		endcolor = new Color(1, 1, 1, 1);
+
+		t = 0.0f;
+		duration = 0.5f;
+		while (operation.progress < 0.9f)
+		{
+			while (image.color.a < 1)
 			{
-				text.GetComponent<TMP_Text>().color = Color.Lerp(startcolor, endcolor, t);
-				image.GetComponent<Image>().color = Color.Lerp(startcolor, endcolor, t);
+				text.color = Color.Lerp(startcolor, endcolor, t);
+				image.color = Color.Lerp(startcolor, endcolor, t);
 				if (t < 1)
 				{
 					t += Time.deltaTime / duration;
@@ -62,17 +68,40 @@ public class TransitionController : MonoBehaviour
 			}
 			yield return null;
 		}
+
+		startcolor = new Color(1, 1, 1, 1);
+		endcolor = new Color(1, 1, 1, 0);
+
+		t = 0f;
+		duration = 0.5f;
+
+		while (image.color.a > 0f)
+		{
+			text.color = Color.Lerp(startcolor, endcolor, t);
+			image.color = Color.Lerp(startcolor, endcolor, t);
+			if (t < 1)
+			{
+				t += Time.deltaTime / duration;
+			}
+			yield return null;
+		}
+		yield return null;
+		operation.allowSceneActivation = true;
 	}
 
 	IEnumerator LoadingText()
 	{
-		while(true){
-			text.GetComponent<TMP_Text>().text = "Carregando.";
+		while (true)
+		{
+			text.text = "Carregando";
 			yield return new WaitForSecondsRealtime(0.5f);
-			text.GetComponent<TMP_Text>().text = "Carregando..";
+			text.text = "Carregando.";
 			yield return new WaitForSecondsRealtime(0.5f);
-			text.GetComponent<TMP_Text>().text = "Carregando...";
+			text.text = "Carregando..";
+			yield return new WaitForSecondsRealtime(0.5f);
+			text.text = "Carregando...";
 			yield return new WaitForSecondsRealtime(0.5f);
 		}
 	}
+
 }
