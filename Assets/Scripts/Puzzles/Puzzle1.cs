@@ -226,7 +226,7 @@ public class Puzzle1 : MonoBehaviour
 						exclamation.SetActive(true);
 						dialogues.textSize.fontSizeMax = 80;
 						dialogues.dialogueBox.SetActive(true);
-						charlesCollider.enabled = false;
+						charlesCollider.enabled = true;
 						if (dialogue == 13)
 						{
 							dialogue++;

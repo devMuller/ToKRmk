@@ -5,14 +5,18 @@ using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
-	public int playerHealth = 6;
+	public int playerMaxHealth = 6;
 	public int playerCurrentHealth;
 
-	public float regenTime = 10f;
-	public bool nextRegen = true;
+	public GameObject HealthBar;
 
-	public float hitTime = 0.5f;
-	public bool nextHit = true;
+	public GameObject[] Hearts = new GameObject[5];
+
+	public float regenCoolDown = 10f;
+	public float lastRegen = 0f;
+
+	public float damageCoolDown = 0.5f;
+	public float lastDamage = 0f;
 
 	Animator anim;
 	public Transform spriteTransform;
@@ -20,7 +24,49 @@ public class Player : MonoBehaviour
 	private void Start()
 	{
 		anim = GetComponentInChildren<Animator>();
-		playerCurrentHealth = playerHealth;
+		playerCurrentHealth = playerMaxHealth;
+		UpdateHealthBar();
+		UpdateHealth();
+	}
+
+	private void Update()
+	{
+		if (Time.time - lastRegen > regenCoolDown && playerCurrentHealth < playerMaxHealth)
+		{
+			lastRegen = Time.time;
+			playerCurrentHealth++;
+			UpdateHealth();
+		}
+	}
+
+	void UpdateHealthBar()
+	{
+		if(playerMaxHealth >= 9)
+		{
+			Hearts[4].SetActive(true);
+		}
+		 if (playerMaxHealth >= 7)
+		{
+			Hearts[3].SetActive(true);
+		}
+		 if (playerMaxHealth >= 5)
+		{
+			Hearts[2].SetActive(true);
+		}
+		 if(playerMaxHealth >= 3)
+		{
+			Hearts[1].SetActive(true);
+		}
+		 if(playerMaxHealth >= 1)
+		{
+			Hearts[0].SetActive(true);
+		}
+		UpdateHealth();
+	}
+
+	void UpdateHealth()
+	{
+		HealthBar.GetComponent<Animator>().SetInteger("Health", playerCurrentHealth) ;
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision)
@@ -41,21 +87,23 @@ public class Player : MonoBehaviour
 
 	void Damage()
 	{
-		if (nextHit)
+		if (Time.time - lastDamage > damageCoolDown)
 		{
-			nextHit = false;
+			lastDamage = Time.time;
+			lastRegen = Time.time;
 			anim.SetTrigger("hit");
 			playerCurrentHealth--;
+			UpdateHealth();
 			StartCoroutine("Hit");
 			StartCoroutine("Up");
 		}
 	}
 
-	IEnumerator Hit()
+	void RegenHeatlh()
 	{
-		yield return new WaitForSeconds(hitTime);
-		nextHit = true;
+
 	}
+
 
 	IEnumerator Up()
 	{
