@@ -19,9 +19,12 @@ public class ChestConfig : MonoBehaviour
 
 	public bool ChestEmpty = false;
 
+	public InventoryController PlayerInventory;
+
 	public GameObject Player;
 	public GameObject PlayerWeapon;
 	public GameObject PlayerItemDisplay;
+	public InventoryController Inventory;
 
 	bool playerIn = false;
 	private void Start()
@@ -57,6 +60,7 @@ public class ChestConfig : MonoBehaviour
 					PlayerItemDisplay.SetActive(true);
 					PlayerItemDisplay.GetComponent<SpriteRenderer>().sprite = lootSprite;
 					PlayerWeapon.GetComponent<SpriteRenderer>().sprite = lootSprite;
+					PlayerInventory.ChangeWeapon(lootSprite, "ARMAAAAA");
 					ChestItemDisplay.GetComponent<SpriteRenderer>().sprite = null;
 					ChestItemDisplay.SetActive(false);
 					ChestAnimator.SetTrigger("Empty");

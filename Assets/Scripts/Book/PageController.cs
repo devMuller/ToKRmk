@@ -53,4 +53,22 @@ public class PageController : MonoBehaviour
 			page -= 2;
 		GenPage();
 	}
+
+
+	private void Update()
+	{
+		if (this.gameObject.activeSelf)
+		{
+			if(Input.GetKeyDown(KeyCode.LeftArrow))
+			{
+				PreviousPage();
+			}
+
+			if (Input.GetKeyDown(KeyCode.RightArrow))
+			{
+				NextPage();
+			}
+		}
+	}
+
 }
